@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //routes
-const userRoutes = require("./routes/userRoutes");
+const userRoutes = require("../routes/userRoutes");
 app.use("/users", userRoutes);
 
 //test route
