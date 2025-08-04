@@ -13,7 +13,7 @@ async function createUser(userData) {
 
 async function getUser(query = {}) {
   try {
-    const users = await User.find(query);
+    const users = await User.findOne(query);
     if (users.length === 0) {
       return { success: false, message: "No users found" };
     }
