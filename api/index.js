@@ -3,6 +3,7 @@ const router = express.Router();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const morgan = require("morgan");
+require("dotenv").config();
 
 const PORT = 5000;
 
@@ -42,7 +43,7 @@ router.get("/", (req, res) => {
   });
 });
 
-// Use the router
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT: ${PORT}`);
