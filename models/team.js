@@ -3,11 +3,9 @@ const mongoose = require("mongoose");
 const teamSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
   },
   createdby: {
-    name: String,
-    required: true,
+    type: String,
   },
   members: [
     {
