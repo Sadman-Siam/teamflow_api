@@ -31,12 +31,14 @@ const connectDB = async () => {
 };
 //routes
 const userRoutes = require("../routes/userRoutes");
+const teamRoutes = require("../routes/teamRoutes");
 
-app.use("/api", router);
+app.use("/", router);
 app.use("/api/users", userRoutes);
+app.use("/api/teams", teamRoutes);
 
 //test route
-router.get("/api", (req, res) => {
+router.get("/", (req, res) => {
   res.status(200).json({
     message: "API is running",
     welcome: "Welcome to the Teamflow API",
