@@ -5,6 +5,10 @@ const teamSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  createdby: {
+    name: String,
+    required: true,
+  },
   members: [
     {
       user: {
@@ -34,8 +38,8 @@ const teamSchema = new mongoose.Schema({
         default: "todo",
       },
       assignedTo: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+        type: String,
+        required: true,
       },
     },
   ],

@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
   },
   email: {
@@ -29,14 +29,6 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: ["pending", "accepted", "rejected"],
         default: "pending",
-      },
-    },
-  ],
-  assignedTasks: [
-    {
-      taskId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Task",
       },
     },
   ],
