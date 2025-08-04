@@ -13,6 +13,8 @@ app.use(morgan("dev"));
 
 //routes
 const userRoutes = require("../routes/userRoutes");
+
+app.use("/", router);
 app.use("/users", userRoutes);
 
 //test route
@@ -24,7 +26,6 @@ router.get("/", (req, res) => {
 });
 
 // Use the router
-app.use("/api", router);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT: ${PORT}`);
