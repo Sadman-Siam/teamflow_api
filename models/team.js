@@ -4,7 +4,10 @@ const teamSchema = new mongoose.Schema({
   name: {
     type: String,
   },
-  createdby: {
+  owner: {
+    type: String,
+  },
+  ownerEmail: {
     type: String,
   },
   members: [
