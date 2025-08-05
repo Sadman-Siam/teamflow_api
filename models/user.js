@@ -16,6 +16,9 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Team",
       },
+      teamName: {
+        type: String,
+      },
     },
   ],
   teamRequests: [
