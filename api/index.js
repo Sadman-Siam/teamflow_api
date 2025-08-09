@@ -45,7 +45,7 @@ router.get("/", (req, res) => {
   });
 });
 
-//connectDB();
+connectDB();
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT: ${PORT}`);

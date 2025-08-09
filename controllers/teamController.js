@@ -4,9 +4,7 @@ const getTeam = async (req, res) => {
   const query = req.query;
   const result = await teamService.getTeam(query);
   if (result.success) {
-    return res.status(200).json({
-      data: result.data,
-    });
+    return res.status(200).json(result.data);
   } else {
     return res.status(404).json({
       message: result.message,
@@ -35,7 +33,7 @@ const updateTeam = async (req, res) => {
   if (result.success) {
     return res.status(200).json({
       message: result.message,
-      data: result.data,
+      team: result.data,
     });
   } else {
     return res.status(404).json({
