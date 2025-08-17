@@ -27,6 +27,9 @@ const userSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Team",
       },
+      teamName: {
+        type: String,
+      },
       status: {
         type: String,
         enum: ["pending", "accepted", "rejected"],

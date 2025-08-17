@@ -12,9 +12,11 @@ const teamSchema = new mongoose.Schema({
   },
   members: [
     {
-      user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+      userName: {
+        type: String,
+      },
+      userEmail: {
+        type: String,
       },
       role: {
         type: String,
@@ -38,9 +40,15 @@ const teamSchema = new mongoose.Schema({
         enum: ["todo", "in-progress", "done"],
         default: "todo",
       },
-      assignedTo: {
-        type: String,
-        required: true,
+      assignedTo: [
+        {
+          userName: {
+            type: String,
+          },
+        },
+      ],
+      dueDate: {
+        type: Date,
       },
     },
   ],
