@@ -29,11 +29,9 @@ const teamSchema = new mongoose.Schema({
     {
       taskName: {
         type: String,
-        required: true,
       },
       description: {
         type: String,
-        required: true,
       },
       status: {
         type: String,
