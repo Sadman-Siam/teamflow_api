@@ -32,10 +32,12 @@ const connectDB = async () => {
 //routes
 const userRoutes = require("../routes/userRoutes");
 const teamRoutes = require("../routes/teamRoutes");
+const discussionRoutes = require("../routes/discussionRoutes");
 
 app.use("/", router);
 app.use("/api/users", userRoutes);
 app.use("/api/teams", teamRoutes);
+app.use("/api/discussions", discussionRoutes);
 
 //test route
 router.get("/", (req, res) => {
