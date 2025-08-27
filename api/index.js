@@ -33,11 +33,13 @@ const connectDB = async () => {
 const userRoutes = require("../routes/userRoutes");
 const teamRoutes = require("../routes/teamRoutes");
 const discussionRoutes = require("../routes/discussionRoutes");
+const fileRoutes = require("../routes/fileRoutes");
 
 app.use("/", router);
 app.use("/api/users", userRoutes);
 app.use("/api/teams", teamRoutes);
 app.use("/api/discussions", discussionRoutes);
+app.use("/api/files", fileRoutes);
 
 //test route
 router.get("/", (req, res) => {

@@ -31,10 +31,7 @@ const updateTeam = async (req, res) => {
   const data = req.body;
   const result = await teamService.updateTeam(query, data);
   if (result.success) {
-    return res.status(200).json({
-      message: result.message,
-      team: result.data,
-    });
+    return res.status(200).json(result.data);
   } else {
     return res.status(404).json({
       message: result.message,
