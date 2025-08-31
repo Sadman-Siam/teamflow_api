@@ -2,14 +2,42 @@ const File = require("../models/file");
 
 async function getFile(query = {}) {
   try {
-    const getFile = await File.findOne(query);
-    if (!getFile) {
-      return { success: false, message: "No file found" };
+    // If no specific query, find all files for the team
+    if (
+      Object.keys(query).length === 0 ||
+      (query.teamName && !query._id && !query.fileName)
+    ) {
+      const files = await File.find(query).select("-data"); // Exclude file data for listing
+      if (!files || files.length === 0) {
+        return { success: false, message: "No files found" };
+      }
+      return { success: true, data: files };
+    } else {
+      // Find specific file (including data for download)
+      const file = await File.findOne(query);
+      if (!file) {
+        return { success: false, message: "No file found" };
+      }
+      return { success: true, data: file };
     }
-    return { success: true, data: getFile };
   } catch (error) {
     console.error("Error fetching files:", error);
     return { success: false, message: "Error fetching files" };
+  }
+}
+
+async function uploadFile(fileData) {
+  try {
+    const newFile = new File(fileData);
+    await newFile.save();
+    return {
+      success: true,
+      message: "File uploaded successfully",
+      data: newFile,
+    };
+  } catch (error) {
+    console.error("Error uploading file:", error);
+    return { success: false, message: "Error uploading file" };
   }
 }
 
@@ -53,6 +81,7 @@ async function deleteFile(query = {}) {
 }
 
 module.exports = {
+  uploadFile,
   getFile,
   createFile,
   updateFile,
