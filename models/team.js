@@ -50,6 +50,20 @@ const teamSchema = new mongoose.Schema({
       },
     },
   ],
+  teamLog: [
+    {
+      userName: {
+        type: String,
+      },
+      action: {
+        type: String,
+      },
+      timestamp: {
+        type: Date,
+        default: Date.now,
+      },
+    },
+  ],
 });
 
 const Team = mongoose.model("Team", teamSchema);
